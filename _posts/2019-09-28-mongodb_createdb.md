@@ -15,7 +15,7 @@ MongoDB를 설치한다. 운영체계와 설치한 MongoDB 버전은 각기 아�
 
 윈도우의 `환경변수 - 시스템 변수`에 아래를 추가한다.
 
-```dos
+```
 C:\Program Files\MongoDB\Server\3.6\bin
 ```
 
@@ -23,7 +23,7 @@ C:\Program Files\MongoDB\Server\3.6\bin
 
 이제 `mongo_db/`에 아래와 같이 daemon(서버)을 실행할 배치파일 `mongodb_start.bat`을 만든다.
 
-```dos
+```
 mongod --auth --dbpath e:/mongo_db/local
 ```
 
@@ -31,7 +31,7 @@ mongod --auth --dbpath e:/mongo_db/local
 
 이제, 명령 프롬프트를 열고 mongoDB shell을 실행한다.
 
-```dos
+```
 mongo
 ```
 
@@ -39,7 +39,7 @@ mongo
 
 admin db를 선택하고 admin 계정을 추가한다.
 
-```dos
+```
 > use admin
 switched to db admin
 > db.createUser({
@@ -52,14 +52,14 @@ Successfully added user: { "user" : "admin", "roles" : [ "dbAdminAnyDatabase" ] 
 
 mongoDB shell을 빠져나간다.
 
-```dos
+```
 > exit
 bye
 ```
 
 mongoDB shell을 다시 실행해서, admin으로 로그인해본다.
 
-```dos
+```
 C:\Users\...>mongo admin -uadmin
 MongoDB shell version v3.6.13
 Enter password:
