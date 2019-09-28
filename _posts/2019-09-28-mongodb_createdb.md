@@ -1,8 +1,10 @@
 ---
-title: "MongoDB 설치와 데이터베이스 생성"
+title: "MongoDB 설치와 실행, admin 계정 생성과 접속"
 date: 2019-09-28 09:54:00 -0400
 categories: MongoDB
 ---
+
+# MongoDB 설치
 
 MongoDB를 설치한다. 운영체계와 설치한 MongoDB 버전은 각기 아래와 같다.
 
@@ -33,4 +35,53 @@ mongod --auth --dbpath e:/mongo_db/local
 mongo
 ```
 
-- 참고자료 : Do it! Node.js 프로그래밍
+# admin 계정 생성
+
+admin db를 선택하고 admin 계정을 추가한다.
+
+```dos
+> use admin
+switched to db admin
+> db.createUser({
+... user: "admin",
+... pwd: "p1234",
+... roles:["dbAdminAnyDatabase"]
+... })
+Successfully added user: { "user" : "admin", "roles" : [ "dbAdminAnyDatabase" ] }
+```
+
+mongoDB shell을 빠져나간다.
+
+```dos
+> exit
+bye
+```
+
+mongoDB shell을 다시 실행해서, admin으로 로그인해본다.
+
+```dos
+C:\Users\...>mongo admin -uadmin
+MongoDB shell version v3.6.13
+Enter password:
+connecting to: mongodb://127.0.0.1:27017/admin?gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("3098a815-aed8-4537-a922-5d0bbf7460ba") }
+MongoDB server version: 3.6.13
+>
+```
+
+혹은, shell 실행 후 admin db 선택하고 auth로 로그인한다.
+결과가 1로 나오면 성공한 것이다.
+
+```dos
+C:\Users\...>mongo
+MongoDB shell version v3.6.13
+> use admin
+switched to db admin
+> db.auth("admin", "p1234")
+1
+```
+
+# 참고자료
+- [Do it! Node.js 프로그래밍](http://www.yes24.com/Product/Goods/36886447)
+- https://ijeee.tistory.com/12
+- http://blog.naver.com/PostView.nhn?blogId=oidoman&logNo=221238334996&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView
