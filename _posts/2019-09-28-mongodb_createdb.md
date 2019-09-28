@@ -72,7 +72,7 @@ MongoDB server version: 3.6.13
 혹은, shell 실행 후 admin db 선택하고 auth로 로그인한다.
 결과가 1로 나오면 성공한 것이다.
 
-```dos
+```
 C:\Users\...>mongo
 MongoDB shell version v3.6.13
 > use admin
