@@ -32,7 +32,7 @@ mongod --auth --dbpath e:/mongo_db/local
 이제, 명령 프롬프트를 열고 mongoDB shell을 실행한다.
 
 ```
-mongo
+C:\Users\...>mongo
 ```
 
 # admin 계정 생성
@@ -45,9 +45,26 @@ switched to db admin
 > db.createUser({
 ... user: "admin",
 ... pwd: "p1234",
-... roles:["dbAdminAnyDatabase"]
-... })
-Successfully added user: { "user" : "admin", "roles" : [ "dbAdminAnyDatabase" ] }
+... roles:["userAdminAnyDatabase",
+... "userAdmin",
+... "readWrite",
+... "dbAdmin",
+... "clusterAdmin",
+... "readWriteAnyDatabase",
+... "dbAdminAnyDatabase"]});
+
+Successfully added user: {
+        "user" : "admin",
+        "roles" : [
+                "userAdminAnyDatabase",
+                "userAdmin",
+                "readWrite",
+                "dbAdmin",
+                "clusterAdmin",
+                "readWriteAnyDatabase",
+                "dbAdminAnyDatabase"
+        ]
+}
 ```
 
 mongoDB shell을 빠져나간다.
@@ -85,3 +102,4 @@ switched to db admin
 - [Do it! Node.js 프로그래밍](http://www.yes24.com/Product/Goods/36886447)
 - https://ijeee.tistory.com/12
 - http://blog.naver.com/PostView.nhn?blogId=oidoman&logNo=221238334996&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView
+- https://stackoverflow.com/questions/27784956/error-couldnt-add-user-not-authorized-on-test-to-execute-command-createuser
